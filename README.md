@@ -20,7 +20,7 @@ php composer.phar require "nex/yii2-datepicker" "*"
 or add
 
 ```json
-"nex/yii2-datepicker" : "*"
+"nex/yii2-datepicker": "*"
 ```
 
 to the `require` section of your application's `composer.json` file.
