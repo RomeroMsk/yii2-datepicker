@@ -172,7 +172,7 @@ class DatePicker extends InputWidget
         }
 
         Html::addCssClass($this->options, 'form-control');
-        Html::addCssClass($this->containerOptions, 'input-group nex-datepicker-container date');
+        Html::addCssClass($this->containerOptions, ['input-group', 'nex-datepicker-container', 'date']);
     }
 
     /**
@@ -213,9 +213,9 @@ class DatePicker extends InputWidget
             $input = Html::tag('div', $input, $this->containerOptions);
         }
 
-        echo $input;
-
         $this->registerClientScript();
+
+        return $input;
     }
 
     /**

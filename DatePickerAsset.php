@@ -9,28 +9,27 @@ namespace nex\datepicker;
 use yii\web\AssetBundle;
 
 /**
- * DatePickerAsset
+ * DatePicker asset
  *
  * @author Roman Ovchinnikov <nex.software@gmail.com>
  * @link https://github.com/RomeroMsk/yii2-datepicker
  */
 class DatePickerAsset extends AssetBundle
 {
-    public $sourcePath = '@bower';
+    public $sourcePath = '@bower/eonasdan-bootstrap-datetimepicker';
 
     public $depends = [
-        'yii\bootstrap\BootstrapPluginAsset'
+        'yii\bootstrap\BootstrapPluginAsset',
+        'nex\datepicker\MomentAsset',
     ];
 
     public function init() {
         if (YII_DEBUG) {
-            $this->css[] = 'eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css';
-            $this->js[] = 'moment/min/moment-with-locales.js';
-            $this->js[] = 'eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js';
+            $this->css[] = 'build/css/bootstrap-datetimepicker.css';
+            $this->js[] = 'src/js/bootstrap-datetimepicker.js';
         } else {
-            $this->css[] = 'eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css';
-            $this->js[] = 'moment/min/moment-with-locales.min.js';
-            $this->js[] = 'eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js';
+            $this->css[] = 'build/css/bootstrap-datetimepicker.min.css';
+            $this->js[] = 'build/js/bootstrap-datetimepicker.min.js';
         }
     }
 }
