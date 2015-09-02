@@ -1,9 +1,9 @@
 {
-    "name": "nex/yii2-datetimepicker",
+    "name": "nex/yii2-datepicker",
     "type": "yii2-extension",
     "description": "Bootstrap 3 Date/time picker widget for Yii2",
     "keywords": ["yii2", "extension", "widget", "datepicker", "datetimepicker", "bootstrap"],
-    "homepage": "https://github.com/RomeroMsk/yii2-datetimepicker",
+    "homepage": "https://github.com/RomeroMsk/yii2-datepicker",
     "license": "BSD 3-Clause",
     "authors": [
         {
