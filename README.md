@@ -4,6 +4,7 @@ Bootstrap 3 date/time picker widget for Yii2
 Credits
 -------
 Jonathan Peterson (@Eonasdan) for [Bootstrap 3 Date/Time Picker](https://github.com/Eonasdan/bootstrap-datetimepicker).
+
 Antonio Ramirez (@tonydspaniard) for inspiration by [Bootstrap DatePicker Widget for Yii2](https://github.com/2amigos/yii2-date-picker-widget) and code examples.
 
 Installation
@@ -27,6 +28,7 @@ to the `require` section of your application's `composer.json` file.
 Usage
 -----
 Please refer to the [Datepicker documentation](http://eonasdan.github.io/bootstrap-datetimepicker/) web page for options and examples of using Eonasdan's Datepicker widget.
+
 To use widget as date/time picker, set appropriate format, e.g. 'L LT' (as in examples below). See [momentjs' docs](http://momentjs.com/docs/#/displaying/format/) for valid formats.
 
 **With a model**
