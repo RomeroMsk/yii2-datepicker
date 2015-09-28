@@ -16,7 +16,7 @@
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
         "bower-asset/moment": "*",
-        "bower-asset/eonasdan-bootstrap-datetimepicker": "*"
+        "bower-asset/eonasdan-bootstrap-datetimepicker": "4.*"
     },
     "autoload": {
         "psr-4": {
