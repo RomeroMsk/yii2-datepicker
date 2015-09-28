@@ -139,6 +139,17 @@ class DatePicker extends InputWidget
             'nextDecade' => Yii::t('datepicker', 'Next Decade'),
             'prevCentury' => Yii::t('datepicker', 'Previous Century'),
             'nextCentury' => Yii::t('datepicker', 'Next Century'),
+            'pickHour' => Yii::t('datepicker', 'Pick Hour'),
+            'incrementHour' => Yii::t('datepicker', 'Increment Hour'),
+            'decrementHour' => Yii::t('datepicker', 'Decrement Hour'),
+            'pickMinute' => Yii::t('datepicker', 'Pick Minute'),
+            'incrementMinute' => Yii::t('datepicker', 'Increment Minute'),
+            'decrementMinute' => Yii::t('datepicker', 'Decrement Minute'),
+            'pickSecond' => Yii::t('datepicker', 'Pick Second'),
+            'incrementSecond' => Yii::t('datepicker', 'Increment Second'),
+            'decrementSecond' => Yii::t('datepicker', 'Decrement Second'),
+            'togglePeriod' => Yii::t('datepicker', 'Toggle Period'),
+            'selectTime' => Yii::t('datepicker', 'Select Time'),
         ];
     }
 
