@@ -2,7 +2,7 @@
 /**
  * @copyright Copyright (c) 2015 Roman Ovchinnikov
  * @link https://github.com/RomeroMsk
- * @version 1.0.0
+ * @version 1.1.0
  */
 namespace nex\datepicker;
 

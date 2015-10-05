@@ -2,7 +2,7 @@
 /**
  * @copyright Copyright (c) 2015 Roman Ovchinnikov
  * @link https://github.com/RomeroMsk
- * @version 1.0.0
+ * @version 1.1.0
  */
 namespace nex\datepicker;
 
@@ -11,6 +11,7 @@ use yii\bootstrap\ButtonDropdown;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
+use yii\web\View;
 use yii\widgets\InputWidget;
 
 /**
@@ -21,6 +22,11 @@ use yii\widgets\InputWidget;
  */
 class DatePicker extends InputWidget
 {
+    /**
+     * The name of the jQuery plugin to use for this widget.
+     */
+    const PLUGIN_NAME = 'datetimepicker';
+
     /**
      * @var mixed the addon markup if you wish to display the input as a component. If you don't wish to render as a
      * component then set it to null or false. But remember that plugin requires a relative positioned container.
@@ -111,6 +117,18 @@ class DatePicker extends InputWidget
      * @var array HTML attributes to render the container.
      */
     public $containerOptions = [];
+
+    /**
+     * @var boolean whether to show decades view in Datepicker. Set it to false to hide this view.
+     * Author of original plugin is ignoring requests to add an option for this, so we will hide it via the hack.
+     * @see https://github.com/Eonasdan/bootstrap-datetimepicker/issues/1226
+     */
+    public $showDecades = true;
+
+    /**
+     * @var string the hashed variable to store the pluginOptions.
+     */
+    private $_hashVar;
 
     /**
      * Registers widget translations.
@@ -230,6 +248,24 @@ class DatePicker extends InputWidget
     }
 
     /**
+     * Generates a hashed variable to store the plugin `clientOptions`. Helps in reusing the variable for similar
+     * options passed for other widgets on the same page. The following special data attribute will also be
+     * added to the input field to allow accessing the client options via javascript:
+     *
+     * - 'data-plugin-inputmask' will store the hashed variable storing the plugin options.
+     *
+     * @param View $view the view instance
+     * @author [Thiago Talma](https://github.com/thiagotalma)
+     */
+    protected function hashPluginOptions($view)
+    {
+        $encOptions = empty($this->clientOptions) ? '{}' : Json::htmlEncode($this->clientOptions);
+        $this->_hashVar = self::PLUGIN_NAME . '_' . hash('crc32', $encOptions);
+        $this->options['data-plugin-' . self::PLUGIN_NAME] = $this->_hashVar;
+        $view->registerJs("var {$this->_hashVar} = {$encOptions};\n", View::POS_HEAD);
+    }
+
+    /**
      * Registers required script for the plugin to work as DatePicker.
      */
     public function registerClientScript()
@@ -246,12 +282,16 @@ class DatePicker extends InputWidget
             $selector .= ".parent()";
         }
 
-        $options = !empty($this->clientOptions) ? Json::encode($this->clientOptions) : '';
+        $this->hashPluginOptions($view);
 
-        $js[] = "$selector.datetimepicker($options);";
+        $js[] = "$selector." . self::PLUGIN_NAME . "({$this->_hashVar});";
 
         if (!empty($this->dropdownItems)) {
             $js[] = "$selector.find('.dropdown-menu a').on('click', function (e) { e.preventDefault(); jQuery('#$id').val(jQuery(this).data('value')); });";
+        }
+
+        if ($this->showDecades === false) {
+            $js[] = "$selector.on('dp.show dp.update', function () { $(this).find('.datepicker-years .picker-switch').removeAttr('title').css('cursor', 'default').css('background', 'inherit').on('click', function (e) { e.stopPropagation(); }); });";
         }
 
         if (!empty($this->clientEvents)) {
@@ -260,6 +300,6 @@ class DatePicker extends InputWidget
             }
         }
 
-        $view->registerJs(implode("\n", $js));
+        $view->registerJs(implode("\n", $js) . "\n");
     }
 }
