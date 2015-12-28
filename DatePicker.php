@@ -229,6 +229,7 @@ class DatePicker extends InputWidget
                     ],
                     'options' => [
                         'class' => 'btn-default',
+                        'type' => 'button',
                     ],
                     'dropdown' => [
                         'items' => $this->dropdownItems,
