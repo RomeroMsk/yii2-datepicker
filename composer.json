@@ -1,5 +1,5 @@
 {
-    "name": "nex/yii2-datepicker",
+    "name": "sakhlab/yii2-datepicker",
     "type": "yii2-extension",
     "description": "Bootstrap 3 Date/time picker widget for Yii2",
     "keywords": ["yii2", "extension", "widget", "datepicker", "datetimepicker", "bootstrap"],
