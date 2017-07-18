@@ -4,7 +4,7 @@
  * @link https://github.com/RomeroMsk
  * @version 1.0.0
  */
-namespace nex\datepicker;
+namespace georgezim85\datepicker;
 
 use yii\web\AssetBundle;
 
