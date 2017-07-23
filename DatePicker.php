@@ -4,7 +4,7 @@
  * @link https://github.com/RomeroMsk
  * @version 1.1.0
  */
-namespace georgezim\datepicker;
+namespace nex\datepicker;
 
 use Yii;
 use yii\bootstrap\ButtonDropdown;
