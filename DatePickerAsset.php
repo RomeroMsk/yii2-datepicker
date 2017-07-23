@@ -4,7 +4,7 @@
  * @link https://github.com/RomeroMsk
  * @version 1.1.0
  */
-namespace nex\datepicker;
+namespace georgezim\datepicker;
 
 use yii\web\AssetBundle;
 
@@ -20,7 +20,7 @@ class DatePickerAsset extends AssetBundle
 
     public $depends = [
         'yii\bootstrap\BootstrapPluginAsset',
-        'nex\datepicker\MomentAsset',
+        'georgezim\datepicker\MomentAsset',
     ];
 
     public function init() {
