@@ -84,3 +84,9 @@ use nex\datepicker\DatePicker;
     ],
 ]);?>
 ```
+
+Changes
+--------
+
+### 2019-04-18/uhi67
+- Now works with DateTime attribute values
