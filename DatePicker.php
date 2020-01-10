@@ -211,7 +211,7 @@ class DatePicker extends InputWidget
     {
 	    $formatter = Yii::$app->formatter;
 	    $value = $this->hasModel() ? $this->model->getAttribute($this->attribute) : $this->value;
-	    if($value instanceof \DateTime) $value = $formatter->asDatetime($value, 'short');
+	    if($value instanceof \DateTime || is_numeric($value)) $value = $formatter->asDatetime($value, 'short');
 	    $name = $this->hasModel() ? $this->model->formName().'['.$this->attribute.']' : $this->name;
 
 	    $input = Html::textInput($name, $value, $this->options);

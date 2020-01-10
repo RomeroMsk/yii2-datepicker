@@ -89,4 +89,4 @@ Changes
 --------
 
 ### 2019-04-18/uhi67
-- Now works with DateTime attribute values
+- Now works with DateTime and integer attribute values
